@@ -17,10 +17,8 @@ def test_add_book():
         json={
             "id": "TEST-101",
             "title": "Operating Systems",
-            "author": "Galvin"
-        }
+            "author": "Galvin",
+        },
     )
     assert response.status_code == 201
-
-
     
