@@ -4,7 +4,7 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-VERSION = os.getenv("APP_VERSION", "v2")
+VERSION = os.getenv("APP_VERSION", "v3")
 books = []
 
 
