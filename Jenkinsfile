@@ -70,8 +70,12 @@ pipeline {
                     )
                 ]) {
                     bat '''
-                        docker login -u "%DH_USER%" -p "%DH_PASSWORD%"
+                        echo %DH_PASSWORD% | docker login -u "%DH_USER%" --password-stdin
+                        if errorlevel 1 exit /b 1
+
                         docker push %DOCKERHUB_USER%/%IMAGE_NAME%:%APP_VERSION%
+                        if errorlevel 1 exit /b 1
+
                         docker logout
                     '''
                 }
